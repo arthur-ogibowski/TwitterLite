@@ -1,0 +1,37 @@
+
+
+    {% block css %} <link rel="stylesheet" href="{{ url_for('static', filename= 'css/new.css') }}"> {% endblock %}
+
+{% block body %}
+    <div class="register-form">
+        <h1> Criar conta </h1>
+        <form method="POST">
+            {{ form.csrf_token }}
+
+            <div class="form-group">
+                {{ form.email.label() }}
+                {{ form.email() }}
+            </div>
+
+            <div class="form-group">
+                {{ form.usarname.label() }}
+                {{ form.usarname() }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label() }}
+                {{ form.password() }}
+            </div>
+
+            <div class="form-group">
+                {{ form.checkPassword.label() }}
+                {{ form.checkPassword() }}
+            </div>
+
+            <div class="form-group">
+                {{ form.btn() }}
+            </div>
+        </form>
+        <a href="/">Voltar para o login</a>
+    </div>
+{% endblock %}

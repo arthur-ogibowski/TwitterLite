@@ -1,0 +1,58 @@
+
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename= 'css/profile.css') }}"> {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <a href="{{ url_for('timeline') }}" class="back-link">Ir para a timeline</a>
+        <a href="{{ url_for('homepage') }}" class="back-link">Fazer logout</a>
+
+        <h1>Meu perfil</h1>
+
+        {% if form %}
+            <div class="profile-form">
+                <h1>Olá {{ user.username }}!</h1>
+                <form method="POST" enctype="multipart/form-data">
+                    {{ form.csrf_token }}
+
+                    <div class="form-group">
+                        <h2>Novo post</h2>
+                        {{ form.text() }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.photo.label() }}
+                        {{ form.photo() }}
+                    </div>
+
+                    {{ form.btn() }}
+                </form>
+            </div>
+        {% endif %}
+
+        {% for post in user.posts[::-1] %}
+            <div class="post">
+                <p>{{ post.post_text }}</p>
+                <img class="img-thumbnail rounded" src="{{ url_for('static', filename='assets/' + post.post_img) }}">
+                {% if post.reposted %}
+                    <h3>Postado por: <span>{{ post.original_posted_by_id }}</span> em <span>{{ post.original_posted_date.strftime('%d/%m/%Y')}}</span></h3>
+                    <h3>Repostado por: <span>{{ post.user.username }}</span> em <span>{{ post.creation_date.strftime('%d/%m/%Y')}}</span></h3>
+                {% else %}
+                    <h3>Postado por: <span>{{ post.user.username }}</span> em <span>{{ post.creation_date.strftime('%d/%m/%Y')}}</span></h3>
+                {% endif %}
+                <div class="post-actions">
+                    <form method="POST" action="{{ url_for('like_post', post_id=post.id) }}">
+                        <button type="submit">CURTIR</button>
+                    </form>
+
+                    {% if current_user.id == post.user.id %}
+                    <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}">
+                        <button type="submit" class="delete">DELETAR</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <h2>{{ post.likes }} likes</h2>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

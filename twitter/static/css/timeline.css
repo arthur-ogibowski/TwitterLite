@@ -1,0 +1,137 @@
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f5f8fa;
+    color: #14171a;
+}
+
+.timeline {
+    max-width: 600px;
+    margin: 50px auto;
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.post-card {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.post-header {
+    padding: 10px;
+}
+
+.post-header h2 {
+    color: #1da1f2;
+    margin-bottom: 0;
+}
+
+.post-content {
+    padding: 10px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Additional styles as needed */
+.post-actions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post p {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+h3 span {
+    font-size: 20px;
+    color: #1da1f2;
+}
+.post button {
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+.post button:hover {
+    background-color: #0d8dbf;
+}
+button{
+margin-right: 10px;
+}
+ h1{
+     color: #1da1f2;
+     margin-bottom: 10px;
+ }
+ .back-link {
+    color: #1da1f2;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+.post {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.post p {
+    margin-bottom: 10px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+}
+.post-actions button.delete{
+    background-color: #FF0000 !important;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+.post h2 {
+    color: #1da1f2;
+    margin-top: 10px;
+}
